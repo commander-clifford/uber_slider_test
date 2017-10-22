@@ -90,6 +90,7 @@ class SliderScreensComponent extends Component {
 			changeSlide('toTheLeft',index);
 		}
 
+		// set previousIndex to be compared on next slide
 		previousIndex = index;
 
 	};
