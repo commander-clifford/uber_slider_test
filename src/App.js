@@ -106,11 +106,11 @@ class SliderScreensComponent extends Component {
 					onChangeIndex={this.handleChangeIndex}
 				>
 
+					// TODO: this could be looped to be more modular
 					<div id="slide-0" className="slider-slide slide-0">
 
 						<div className="slider-slide-top">
 
-							{/*  */}
 							<div className="number-icon-wrapper">
 								<div className="number-icon slide-in" style={Object.assign({}, styles.slide_0_icon)}>
 									<span className="number">
@@ -119,14 +119,12 @@ class SliderScreensComponent extends Component {
 								</div>
 							</div>
 
-							{/*  */}
 							<header className="headline-wrapper">
 									<h1 className="headline slide-in">
 										{ content.slide_0.headline }
 									</h1>
 							</header>
 
-							{/*  */}
 							<div className="copy-wrapper">
 								<p className="copy slide-in">
 									{ content.slide_0.copy }
@@ -148,7 +146,6 @@ class SliderScreensComponent extends Component {
 
 						<div className="slider-slide-top">
 
-							{/*  */}
 							<div className="number-icon-wrapper">
 								<div className="number-icon slide-in" style={Object.assign({}, styles.slide_1_icon)}>
 									<span className="number">
@@ -157,14 +154,12 @@ class SliderScreensComponent extends Component {
 								</div>
 							</div>
 
-							{/*  */}
 							<header className="headline-wrapper">
 								<h1 className="headline slide-in">
 									{ content.slide_1.headline }
 								</h1>
 							</header>
 
-							{/*  */}
 							<div className="copy-wrapper">
 								<p className="copy slide-in">
 									{ content.slide_1.copy }
@@ -186,7 +181,6 @@ class SliderScreensComponent extends Component {
 
 						<div className="slider-slide-top">
 
-							{/*  */}
 							<div className="number-icon-wrapper">
 								<div className="number-icon slide-in" style={Object.assign({}, styles.slide_2_icon)}>
 									<span className="number">
@@ -195,14 +189,12 @@ class SliderScreensComponent extends Component {
 								</div>
 							</div>
 
-							{/*  */}
 							<header className="headline-wrapper">
 								<h1 className="headline slide-in">
 									{ content.slide_2.headline }
 								</h1>
 							</header>
 
-							{/*  */}
 							<div className="copy-wrapper">
 								<p className="copy slide-in">
 									{ content.slide_2.copy }
