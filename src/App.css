@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Work+Sans:800");
+body {
+  font-family: 'Roboto', sans-serif; }
+
 .slider-wrapper {
   width: 100vw;
   height: 100vh; }
@@ -36,6 +40,7 @@
             font-size: 4vh;
             line-height: 8vh; } }
   .slider-wrapper .headline-wrapper .headline {
+    font-family: 'Work Sans', sans-serif;
     text-align: center;
     line-height: 1.5;
     margin: 1vh 0 .5vh;
