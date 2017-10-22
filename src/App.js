@@ -107,7 +107,7 @@ class SliderScreensComponent extends Component {
 					onChangeIndex={this.handleChangeIndex}
 				>
 
-					// TODO: this could be looped to be more modular
+					{/* TODO: this could be looped to be more modular */}
 					<div id="slide-0" className="slider-slide slide-0">
 
 						<div className="slider-slide-top">
