@@ -9,17 +9,6 @@ import paintDrop from '../img/paint-drop.svg';
 import painterPalette from '../img/painter-palette.svg';
 import colorDropper from '../img/color-dropper.svg';
 
-import '../App.css';
-
-// const styles = {
-// 	slide_0_icon: { backgroundImage: "linear-gradient(45deg, #7E09FC 0%, #09E3FF 100%)" }, /* purple -> teal */
-// 	slide_0_bottom: { backgroundImage: "linear-gradient(90deg, #7E09FC 0%, #09E3FF 100%)" }, /* purple -> teal */
-// 	slide_1_icon: { backgroundImage: "linear-gradient(45deg, #09E3FF 0%, #F3F915 100%)" }, /* teal -> yellow */
-// 	slide_1_bottom: { backgroundImage: "linear-gradient(90deg, #09E3FF 0%, #F3F915 100%)" }, /* teal -> yellow */
-// 	slide_2_icon: { backgroundImage: "linear-gradient(45deg, #F3F915 0%, #FF0D6D 100%)" }, /* yellow -> pinkred */
-// 	slide_2_bottom: { backgroundImage: "linear-gradient(90deg, #F3F915 0%, #FF0D6D 100%)" }, /* yellow -> pinkred */
-// };
-
 const slidesArray = [
 	{
 		number: "1",
@@ -48,6 +37,8 @@ const slidesArray = [
 ];
 
 const SliderScreens = bindKeyboard(SwipeableViews);
+
+
 
 let previousIndex = 0;
 
@@ -84,9 +75,17 @@ let changeSlide = function(direction, index) {
 
 class Slider extends Component {
 
-	state = {
-		index: 0,
-	};
+	constructor(props){
+    super(props);
+		console.log('--props',props);
+		console.log('--props.currentIndex',props.currentIndex);
+		this.index = props.currentIndex;
+		console.log('this.index',this.index);
+
+		this.state = {
+			index: this.index ? this.index : 0,
+		};
+  }
 
 	handleChangeIndex = index => {
 
