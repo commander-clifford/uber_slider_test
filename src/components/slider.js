@@ -85,7 +85,17 @@ class Slider extends Component {
 		this.state = {
 			index: this.index ? this.index : 0,
 		};
+
+		this.styles = {
+			wrapper: {
+				width: "100vw",
+				height: '100vh',
+			}
+		};
+
   }
+
+
 
 	handleChangeIndex = index => {
 
@@ -114,7 +124,7 @@ class Slider extends Component {
 	render(){
 		const { index } = this.state;
 		return (
-			<div className="slider-wrapper">
+			<div style={this.styles.wrapper} className="slider-wrapper">
 
 				<SliderScreens
 					resistance={true}
