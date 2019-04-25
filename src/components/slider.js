@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slide from './slide.js';
 
 import SwipeableViews from 'react-swipeable-views';
 import { bindKeyboard } from 'react-swipeable-views-utils';
@@ -10,32 +11,41 @@ import colorDropper from '../img/color-dropper.svg';
 
 import '../App.css';
 
-const styles = {
-	slide_0_icon: { backgroundImage: "linear-gradient(45deg, #7E09FC 0%, #09E3FF 100%)" }, /* purple -> teal */
-	slide_0_bottom: { backgroundImage: "linear-gradient(90deg, #7E09FC 0%, #09E3FF 100%)" }, /* purple -> teal */
-	slide_1_icon: { backgroundImage: "linear-gradient(45deg, #09E3FF 0%, #F3F915 100%)" }, /* teal -> yellow */
-	slide_1_bottom: { backgroundImage: "linear-gradient(90deg, #09E3FF 0%, #F3F915 100%)" }, /* teal -> yellow */
-	slide_2_icon: { backgroundImage: "linear-gradient(45deg, #F3F915 0%, #FF0D6D 100%)" }, /* yellow -> pinkred */
-	slide_2_bottom: { backgroundImage: "linear-gradient(90deg, #F3F915 0%, #FF0D6D 100%)" }, /* yellow -> pinkred */
-};
+// const styles = {
+// 	slide_0_icon: { backgroundImage: "linear-gradient(45deg, #7E09FC 0%, #09E3FF 100%)" }, /* purple -> teal */
+// 	slide_0_bottom: { backgroundImage: "linear-gradient(90deg, #7E09FC 0%, #09E3FF 100%)" }, /* purple -> teal */
+// 	slide_1_icon: { backgroundImage: "linear-gradient(45deg, #09E3FF 0%, #F3F915 100%)" }, /* teal -> yellow */
+// 	slide_1_bottom: { backgroundImage: "linear-gradient(90deg, #09E3FF 0%, #F3F915 100%)" }, /* teal -> yellow */
+// 	slide_2_icon: { backgroundImage: "linear-gradient(45deg, #F3F915 0%, #FF0D6D 100%)" }, /* yellow -> pinkred */
+// 	slide_2_bottom: { backgroundImage: "linear-gradient(90deg, #F3F915 0%, #FF0D6D 100%)" }, /* yellow -> pinkred */
+// };
 
-const content = {
-	slide_0: {
+const slidesArray = [
+	{
 		number: "1",
 		headline: "Gradients",
-		copy: "Start, end, angle"
+		copy: "Start, end, angle",
+		icon: paintDrop,
+		iconBg: { backgroundImage: "linear-gradient(45deg, #7E09FC 0%, #09E3FF 100%)" },
+		bottomBg: { backgroundImage: "linear-gradient(90deg, #7E09FC 0%, #09E3FF 100%)" },
 	},
-	slide_1: {
+	{
 		number: "2",
 		headline: "Presets",
-		copy: "Manage presets"
+		copy: "Manage presets",
+		icon: painterPalette,
+		iconBg: { backgroundImage: "linear-gradient(45deg, #09E3FF 0%, #F3F915 100%)" },
+		bottomBg: { backgroundImage: "linear-gradient(90deg, #09E3FF 0%, #F3F915 100%)" },
 	},
-	slide_2: {
+	{
 		number: "3",
 		headline: "Colors",
-		copy: "Pick and color"
+		copy: "Pick and color",
+		icon: colorDropper,
+		iconBg: { backgroundImage: "linear-gradient(45deg, #F3F915 0%, #FF0D6D 100%)" },
+		bottomBg: { backgroundImage: "linear-gradient(90deg, #F3F915 0%, #FF0D6D 100%)" },
 	}
-};
+];
 
 const SliderScreens = bindKeyboard(SwipeableViews);
 
@@ -94,6 +104,14 @@ class Slider extends Component {
 
 	};
 
+	createSlides = () => {
+    let slides = []
+    for (let i = 0; i < slidesArray.length; i++) {
+        slides.push(<Slide slidesArray={slidesArray[i]} key={i} />)
+    }
+    return slides
+  }
+
 	render(){
 		const { index } = this.state;
 		return (
@@ -107,110 +125,9 @@ class Slider extends Component {
 					onChangeIndex={this.handleChangeIndex}
 				>
 
-					<div id="slide-0" className="slider-slide slide-0">
+					{this.createSlides()}
 
-						<div className="slider-slide-top">
 
-							<div className="number-icon-wrapper">
-								<div className="number-icon slide-in" style={Object.assign({}, styles.slide_0_icon)}>
-									<span className="number">
-										{ content.slide_0.number }
-									</span>
-								</div>
-							</div>
-
-							<header className="headline-wrapper">
-									<h1 className="headline slide-in">
-										{ content.slide_0.headline }
-									</h1>
-							</header>
-
-							<div className="copy-wrapper">
-								<p className="copy slide-in">
-									{ content.slide_0.copy }
-								</p>
-							</div>
-						</div>
-
-						<div className="slider-slide-bottom" style={Object.assign({}, styles.slide_0_bottom)}>
-							<div className="context-icon">
-								<span className="icon slide-in-2">
-									<img src={paintDrop} alt="paintDrop" />
-								</span>
-							</div>
-						</div>
-
-					</div>
-
-					<div id="slide-1" className="slider-slide slide-1">
-
-						<div className="slider-slide-top">
-
-							<div className="number-icon-wrapper">
-								<div className="number-icon slide-in" style={Object.assign({}, styles.slide_1_icon)}>
-									<span className="number">
-										{ content.slide_1.number }
-									</span>
-								</div>
-							</div>
-
-							<header className="headline-wrapper">
-								<h1 className="headline slide-in">
-									{ content.slide_1.headline }
-								</h1>
-							</header>
-
-							<div className="copy-wrapper">
-								<p className="copy slide-in">
-									{ content.slide_1.copy }
-								</p>
-							</div>
-						</div>
-
-						<div className="slider-slide-bottom" style={Object.assign({}, styles.slide_1_bottom)}>
-							<div className="context-icon">
-								<span className="icon slide-in-2">
-									<img src={painterPalette} alt="painterPalette" />
-								</span>
-							</div>
-						</div>
-
-					</div>
-
-					<div id="slide-2" className="slider-slide slide-2">
-
-						<div className="slider-slide-top">
-
-							<div className="number-icon-wrapper">
-								<div className="number-icon slide-in" style={Object.assign({}, styles.slide_2_icon)}>
-									<span className="number">
-										{ content.slide_2.number }
-									</span>
-								</div>
-							</div>
-
-							<header className="headline-wrapper">
-								<h1 className="headline slide-in">
-									{ content.slide_2.headline }
-								</h1>
-							</header>
-
-							<div className="copy-wrapper">
-								<p className="copy slide-in">
-									{ content.slide_2.copy }
-								</p>
-							</div>
-						</div>
-
-						<div className="slider-slide-bottom" style={Object.assign({}, styles.slide_2_bottom)}>
-							<div className="context-icon">
-								<span className="icon slide-in-2">
-									<img src={colorDropper} alt="colorDropper" />
-								</span>
-							</div>
-						</div>
-
-					</div>
 
 				</SliderScreens>
 

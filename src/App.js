@@ -5,7 +5,10 @@ class App extends Component {
 
 	render() {
 		return (
+
+			// The Slider component
 			<Slider />
+
 		);
 	}
 }
