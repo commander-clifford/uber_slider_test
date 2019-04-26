@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Route } from "react-router-dom";
 import SwipeableRoutes from "react-swipeable-routes";
 import Slider from './slider.js';
 
