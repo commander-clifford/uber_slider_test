@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slide from './slide.js';
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SwipeableRoutes from "react-swipeable-routes";
 import SwipeableViews from 'react-swipeable-views';
 import { bindKeyboard } from 'react-swipeable-views-utils';
 import { TimelineMax, Power1 } from "gsap";
@@ -50,15 +51,12 @@ let changeSlide = function(direction, index) {
 class Slider extends Component {
 
   constructor(props){
-
     super(props);
     this.index = props.currentIndex;
     this.content = props.content;
-
     this.state = {
       index: this.index ? this.index : 0,
     };
-
   }
 
   handleChangeIndex = index => {
@@ -80,30 +78,41 @@ class Slider extends Component {
   createSlides = () => {
     let slides = []
     for (let i = 0; i < this.content.length; i++) {
-      slides.push(<Slide content={this.content[i]} key={i} />)
+      slides.push(
+        <Route
+          path={'/'+i}
+          component={<Slide content={this.content[i]} key={i} />} />
+      )
     }
     return slides
   }
 
   render(){
     const { index } = this.state;
+    const slide1 = () => (<Slide content={this.content[0]} key={0} />);
+    const slide2 = () => (<Slide content={this.content[1]} key={1} />);
+    const slide3 = () => (<Slide content={this.content[2]} key={2} />);
     return (
 
-      <div style={STYLES.wrapper} className="slider-wrapper">
+      <Router>
+        <div style={STYLES.wrapper} className="slider-wrapper">
 
-        <SliderScreens
-          resistance={true}
-          enableMouseEvents={true}
-          hysteresis={0.2}
-          index={index}
-          onChangeIndex={this.handleChangeIndex}
-        >
+          <SwipeableRoutes
+            resistance={true}
+            enableMouseEvents={true}
+            hysteresis={0.2}
+            index={index}
+            onChangeIndex={this.handleChangeIndex}
+          >
 
-          {this.createSlides()}
+          <Route path={'/1'} component={slide1} />
+          <Route path={'/2'} component={slide2} />
+          <Route path={'/3'} component={slide3} />
 
-        </SliderScreens>
+          </SwipeableRoutes>
 
-      </div>
+        </div>
+      </Router>
 
     );
   }
