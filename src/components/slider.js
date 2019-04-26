@@ -76,12 +76,13 @@ class Slider extends Component {
   };
 
   createSlides = () => {
-    let slides = []
+    let slides = [];
     for (let i = 0; i < this.content.length; i++) {
+      let slide = () => (<Slide content={this.content[i]} key={i} />);
       slides.push(
         <Route
           path={'/'+i}
-          component={<Slide content={this.content[i]} key={i} />} />
+          component={slide} />
       )
     }
     return slides
@@ -89,9 +90,7 @@ class Slider extends Component {
 
   render(){
     const { index } = this.state;
-    const slide1 = () => (<Slide content={this.content[0]} key={0} />);
-    const slide2 = () => (<Slide content={this.content[1]} key={1} />);
-    const slide3 = () => (<Slide content={this.content[2]} key={2} />);
+
     return (
 
       <Router>
@@ -105,9 +104,7 @@ class Slider extends Component {
             onChangeIndex={this.handleChangeIndex}
           >
 
-          <Route path={'/1'} component={slide1} />
-          <Route path={'/2'} component={slide2} />
-          <Route path={'/3'} component={slide3} />
+          {this.createSlides()}
 
           </SwipeableRoutes>
 
