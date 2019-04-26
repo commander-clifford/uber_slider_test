@@ -17,6 +17,10 @@ const STYLES = {
   }
 };
 
+// TODO this should be automated or a better solution
+// const baseUrl = '/';
+const baseUrl = '/uber-slider/';
+
 {/* TODO: This could be DRY but is only a place holder at the moment */}
 
 class Nav extends Component {
@@ -26,21 +30,21 @@ class Nav extends Component {
 
       <nav style={STYLES.nav}>
         <ul style={STYLES.ul}>
-          <li><Link to='/01'>0.1</Link></li>
-          <li><Link to='/02'>0.2</Link></li>
-          <li><Link to='/03'>0.3</Link></li>
+          <li><Link to={baseUrl+'01'}>0.1</Link></li>
+          <li><Link to={baseUrl+'02'}>0.2</Link></li>
+          <li><Link to={baseUrl+'03'}>0.3</Link></li>
         </ul>
         <ul style={STYLES.ul}>
-          <li><Link to='/11'>1.1</Link></li>
-          <li><Link to='/12'>1.2</Link></li>
-          <li><Link to='/13'>1.3</Link></li>
-          <li><Link to='/14'>1.4</Link></li>
+          <li><Link to={baseUrl+'11'}>1.1</Link></li>
+          <li><Link to={baseUrl+'12'}>1.2</Link></li>
+          <li><Link to={baseUrl+'13'}>1.3</Link></li>
+          <li><Link to={baseUrl+'14'}>1.4</Link></li>
         </ul>
         <ul style={STYLES.ul}>
-          <li><Link to='/21'>2.1</Link></li>
-          <li><Link to='/22'>2.2</Link></li>
-          <li><Link to='/23'>2.3</Link></li>
-          <li><Link to='/24'>2.4</Link></li>
+          <li><Link to={baseUrl+'21'}>2.1</Link></li>
+          <li><Link to={baseUrl+'22'}>2.2</Link></li>
+          <li><Link to={baseUrl+'23'}>2.3</Link></li>
+          <li><Link to={baseUrl+'24'}>2.4</Link></li>
         </ul>
       </nav>
 
