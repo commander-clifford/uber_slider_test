@@ -4,8 +4,7 @@ class Slide extends Component {
 
   constructor(props){
     super(props);
-    this.content = props.slidesArray;
-
+    this.content = props.content;
     this.styles = {
       slide: {
         width: "100vw",
@@ -71,8 +70,6 @@ class Slide extends Component {
   				width: '14vh'
       },
     };
-
-
   }
 
 	render() {
