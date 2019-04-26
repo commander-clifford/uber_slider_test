@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const styles = {
+const STYLES = {
   nav: {
     width: "fit-content",
     height: "fit-content",
@@ -11,7 +11,6 @@ const styles = {
     zIndex: 99,
     boxShadow: "inset 0 0 4px rgba(0,0,0,0.5)",
     padding: "0 1em 0 0",
-
   },
   ul: {
     float: "left"
@@ -25,19 +24,19 @@ class Nav extends Component {
   render() {
     return (
 
-      <nav style={styles.nav}>
-        <ul style={styles.ul}>
+      <nav style={STYLES.nav}>
+        <ul style={STYLES.ul}>
           <li><Link to='/01'>0.1</Link></li>
           <li><Link to='/02'>0.2</Link></li>
           <li><Link to='/03'>0.3</Link></li>
         </ul>
-        <ul style={styles.ul}>
+        <ul style={STYLES.ul}>
           <li><Link to='/11'>1.1</Link></li>
           <li><Link to='/12'>1.2</Link></li>
           <li><Link to='/13'>1.3</Link></li>
           <li><Link to='/14'>1.4</Link></li>
         </ul>
-        <ul style={styles.ul}>
+        <ul style={STYLES.ul}>
           <li><Link to='/21'>2.1</Link></li>
           <li><Link to='/22'>2.2</Link></li>
           <li><Link to='/23'>2.3</Link></li>

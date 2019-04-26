@@ -7,6 +7,13 @@ import { TimelineMax, Power1 } from "gsap";
 
 const SliderScreens = bindKeyboard(SwipeableViews);
 
+const STYLES = {
+  wrapper: {
+    width: "100vw",
+    height: '100vh',
+  }
+};
+
 let previousIndex = 0;
 
 let changeSlide = function(direction, index) {
@@ -52,13 +59,6 @@ class Slider extends Component {
       index: this.index ? this.index : 0,
     };
 
-    this.styles = {
-      wrapper: {
-        width: "100vw",
-        height: '100vh',
-      }
-    };
-
   }
 
   handleChangeIndex = index => {
@@ -88,19 +88,20 @@ class Slider extends Component {
   render(){
     const { index } = this.state;
     return (
-      <div style={this.styles.wrapper} className="slider-wrapper">
 
-      <SliderScreens
-        resistance={true}
-        enableMouseEvents={true}
-        hysteresis={0.2}
-        index={index}
-        onChangeIndex={this.handleChangeIndex}
-      >
+      <div style={STYLES.wrapper} className="slider-wrapper">
 
-      {this.createSlides()}
+        <SliderScreens
+          resistance={true}
+          enableMouseEvents={true}
+          hysteresis={0.2}
+          index={index}
+          onChangeIndex={this.handleChangeIndex}
+        >
 
-      </SliderScreens>
+          {this.createSlides()}
+
+        </SliderScreens>
 
       </div>
 
