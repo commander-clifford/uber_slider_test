@@ -9,6 +9,7 @@
     "react-dom": "^16.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "1.0.14",
+    "react-swipeable-routes": "^0.6.0",
     "react-swipeable-views": "^0.12.8"
   },
   "scripts": {

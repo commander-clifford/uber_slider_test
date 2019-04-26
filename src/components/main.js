@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import SwipeableRoutes from "react-swipeable-routes";
 import Slider from './slider.js';
 
 import SlideData from '../mock-api.js';
@@ -15,7 +16,7 @@ class Main extends Component {
 
       <main>
 
-        <Switch>
+        <SwipeableRoutes>
 
           {/* TODO: DRY this out or refactor */}
 
@@ -99,7 +100,7 @@ class Main extends Component {
             render={(props) => (<Slider content={SlideData.slidesArray2} currentIndex={3} {...props}/>)}
           />
 
-        </Switch>
+        </SwipeableRoutes>
 
       </main>
 
