@@ -27,11 +27,14 @@ let changeSlide = function(direction, index) {
   if (direction === 'toTheLeft') { travelDistance = travelDistance-travelDistance-travelDistance; } // left gets negative axis
 
   // clear all active states
+  console.log('_______',document.getElementsByClassName('slider-slide').length);
   for (var i = 0; i < document.getElementsByClassName('slider-slide').length; i++) {
     document.getElementsByClassName('slider-slide')[i].classList.remove('active','toTheRight','toTheLeft');
   }
 
+  console.log('test',document.getElementById('slide-'+index));
   document.getElementById('slide-'+index).classList.add('active',direction); // make current slide active
+  console.log('test',document.getElementById('slide-'+index));
 
   // get the animated elements
   let slideInsInHeader = document.querySelector('.active.'+direction+'#slide-'+index).getElementsByClassName( 'slide-in' ); // get animated elements of active slide
@@ -66,7 +69,7 @@ class Slider extends Component {
     // compare previousIndex to currentIndex to determine if toTheRight or toTheLeft
     if (previousIndex < index) {
       changeSlide('toTheRight',index);
-    } else {
+    } else if (index < previousIndex ) {
       changeSlide('toTheLeft',index);
     }
 
@@ -81,6 +84,7 @@ class Slider extends Component {
       let slide = () => (<Slide content={this.content[i]} key={i} />);
       slides.push(
         <Route
+          key={i}
           path={'/'+i}
           component={slide} />
       )
